@@ -1,0 +1,25 @@
+<!--h1>identity</h1-->
+ <div class="app">
+      <dynamic-form
+        [config]="config"
+        #form="dynamicForm"
+        (submit)="submit($event)">
+      </dynamic-form>
+      {{ form.valid }}
+      {{ form.value | json }}
+    </div>
+	
+	<form [formGroup]="facturaForm" novalidate>
+	<div>
+		<div>
+		<control-select [control]="facturaForm.controls['ClaveProveedor']" [controlName]="'ClaveProveedor'"
+			[label]="'Clave Proveedor'" [placeHolder]="'Clave Proveedor'" [valuePrimitive]="true" 
+			[disabled]="disabled" [valueField]="'id'" [showId]="false" [allowNulls]="false"
+			[title]="'Catálogo de Proveedores'" 
+			[dataSource]="proveedorArray" 
+			[textField]="'name'"
+			(eventValueChange)="proveedor_OnSelect($event)">
+		</control-select>
+		</div>
+	</div>
+</form>  
